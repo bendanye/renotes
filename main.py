@@ -18,3 +18,4 @@ logger.addHandler(logger_file_handler)
 
 if __name__ == "__main__":
     logger.info('Hello Github')
+    print('Hello Github')
