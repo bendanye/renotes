@@ -9,4 +9,6 @@ files+=(${subdirectory_files[@]})
 random_notes=$[$RANDOM % ${#files[@]}]
 selected_note=${files[random_notes]}
 
-echo "Open \"$selected_note\", read it!"
+selected_note="${selected_note:1}"
+
+echo "Open \"https://github.com/bendanye/renotes/tree/main$selected_note\", read it!"
