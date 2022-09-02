@@ -11,4 +11,4 @@ selected_note=${files[random_notes]}
 
 selected_note="${selected_note:1}"
 
-echo "Open \"https://github.com/bendanye/renotes/tree/main$selected_note\", read it!"
+echo "Open \"https://github.com/bendanye/renotes/tree/main$selected_note\" and read it!"
