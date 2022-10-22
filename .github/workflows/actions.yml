@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * *" # At 00:00 everyday
 
 jobs:
-  build:
+  random:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
