@@ -2,8 +2,8 @@
 
 searchDir="./notes/tech"
 
-files=($searchDir/*)
-subdirectory_files=($searchDir/**/*)
+files=($searchDir/*.md)
+subdirectory_files=($searchDir/**/*.md)
 files+=(${subdirectory_files[@]})
 
 random_notes=$[$RANDOM % ${#files[@]}]
