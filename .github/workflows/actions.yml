@@ -7,12 +7,15 @@ on:
 jobs:
   random:
     runs-on: ubuntu-latest
+    outputs:
+      output: ${{ steps.random_result.outputs.result }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
 
-      - name: run random.sh
-        run: ./random.sh
+      - id: random_result
+        name: run random.sh
+        run: echo "result=$(./random.sh)" >> $GITHUB_OUTPUT
         shell: bash
   send:
     runs-on: ubuntu-latest
@@ -22,4 +25,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: Please look at your notes!
+          message: ${{needs.random.outputs.output}}
