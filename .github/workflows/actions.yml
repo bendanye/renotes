@@ -10,7 +10,8 @@ jobs:
     outputs:
       output1: ${{ steps.random_result.outputs.result1 }}
     steps:
-      - name: checkout repo content
+      - id: checkout
+        name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - id: random_result
