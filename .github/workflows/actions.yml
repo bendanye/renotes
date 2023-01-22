@@ -16,7 +16,10 @@ jobs:
 
       - id: random_result
         name: run random.sh
-        run: echo "result1=$(./random.sh)" >> $GITHUB_OUTPUT
+        run: | 
+            result=$(./random.sh)
+            echo $result
+            echo "result1=$result" >> $GITHUB_OUTPUT
         shell: bash
   send:
     runs-on: ubuntu-latest
