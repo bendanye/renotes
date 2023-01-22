@@ -8,14 +8,14 @@ jobs:
   random:
     runs-on: ubuntu-latest
     outputs:
-      output: ${{ steps.random_result.outputs.result }}
+      output1: ${{ steps.random_result.outputs.result1 }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - id: random_result
         name: run random.sh
-        run: echo "result=$(./random.sh)" >> $GITHUB_OUTPUT
+        run: echo "result1=$(./random.sh)" >> $GITHUB_OUTPUT
         shell: bash
   send:
     runs-on: ubuntu-latest
@@ -25,4 +25,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{needs.random.outputs.output}}
+          message: ${{needs.random.outputs.output1}}
