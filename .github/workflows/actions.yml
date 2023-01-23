@@ -29,4 +29,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{needs.random.outputs.output1}}
+          message: ${{ needs.random.outputs.output1 }}
