@@ -25,12 +25,14 @@ jobs:
         shell: bash
   send:
     runs-on: ubuntu-latest
+    needs: random
     steps:
-      - name: checkout repo content
+      - name: testing
         run: | 
             echo ${{needs.random.outputs.result1}}
             echo ${{needs.random.outputs.result2}}
         shell: bash
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
