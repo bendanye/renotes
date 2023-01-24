@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.random_result.outputs.result1 }}
+      output2: ${{ steps.random_result.outputs.result2 }}
     steps:
       - id: checkout
         name: checkout repo content
@@ -20,13 +21,19 @@ jobs:
             result=$(./random.sh)
             echo $result
             echo "result1=$result" >> $GITHUB_OUTPUT
+            echo "result2=hello" >> $GITHUB_OUTPUT
         shell: bash
   send:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo content
+        run: | 
+            echo ${{needs.random.outputs.result1}}
+            echo ${{needs.random.outputs.result2}}
+        shell: bash
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ needs.random.outputs.output1 }}
+          message: ${{ needs.random.outputs.output1 }} ${{ needs.random.outputs.output2 }}
