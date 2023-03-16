@@ -22,4 +22,5 @@ Attended a workshop in 2022 and this is the following that i have learnt.
 * Write a failing acceptance test first then write unit test
 * Do not need to write integration test for external API, should be done on end to end tests
 * Acceptance tests run from client POV and can be written by non-developers, whereas integration tests are written by devs and covered more edge cases.
-  
+* Write assert first followered by act then arrange
+* If not using mock, is integration test
