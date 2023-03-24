@@ -3,30 +3,46 @@ name: run random.sh
 on:
   schedule:
     - cron: "0 0 * * *" # At 00:00 everyday
+    - cron: "0 0 * * 6,7" # At 00:00 sat and sun
 
 jobs:
   random:
     runs-on: ubuntu-latest
     outputs:
-      output: ${{ steps.random_result.outputs.result }}
+      tech_note: ${{ steps.random_tech_note.outputs.tech_note }}
+      non_tech_note: ${{ steps.random_tech_note.outputs.non_tech_note }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
-
-      - id: random_result
+      - id: random_tech_note
         name: run random.sh
         run: | 
             result=$(./random.sh)
             echo $result
-            echo "result=$result" >> $GITHUB_OUTPUT
+            echo "tech_note=$result" >> $GITHUB_OUTPUT
+        shell: bash
+      - id: random_non_tech_note
+        name: run random.sh non_tech
+        if: github.event.schedule == '0 0 * * 6,7'
+        run: | 
+            result=$(./random.sh non_tech)
+            echo $result
+            echo "non_tech_note=$result" >> $GITHUB_OUTPUT
         shell: bash
   send:
     runs-on: ubuntu-latest
     needs: random
     steps:
-      - name: send telegram message on push
+      - name: send telegram message for tech note
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ needs.random.outputs.output }}
+          message: ${{ needs.random.outputs.tech_note }}
+      - name: send telegram message for non_tech note
+        if: github.event.schedule == '0 0 * * 6,7'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: ${{ needs.random.outputs.non_tech_note }}
