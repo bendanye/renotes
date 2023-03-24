@@ -3,7 +3,7 @@ name: run random.sh
 on:
   schedule:
     - cron: "0 0 * * *" # At 00:00 everyday
-    - cron: "0 0 * * 6,7" # At 00:00 sat and sun
+    - cron: "0 0 * * sat,sun" # At 00:00 sat and sun
 
 jobs:
   random:
@@ -23,7 +23,7 @@ jobs:
         shell: bash
       - id: random_non_tech_note
         name: run random.sh non_tech
-        if: github.event.schedule == '0 0 * * 6,7'
+        if: github.event.schedule == '0 0 * * sat,sun'
         run: | 
             result=$(./random.sh non_tech)
             echo $result
@@ -40,7 +40,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: ${{ needs.random.outputs.tech_note }}
       - name: send telegram message for non_tech note
-        if: github.event.schedule == '0 0 * * 6,7'
+        if: github.event.schedule == '0 0 * * sat,sun'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
