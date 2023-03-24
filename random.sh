@@ -1,6 +1,8 @@
 #!/bin/bash
 
-searchDir="./notes/tech"
+type="${1:-tech}"
+
+searchDir="./notes/$type"
 
 files=($searchDir/*.md)
 subdirectory_files=($searchDir/**/*.md)
