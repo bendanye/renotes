@@ -9,17 +9,17 @@ jobs:
   random:
     runs-on: ubuntu-latest
     outputs:
-      tech_note: ${{ steps.random_tech_note.outputs.tech_note }}
-      non_tech_note: ${{ steps.random_tech_note.outputs.non_tech_note }}
+      tech_note: ${{ steps.random_tech_note.outputs.note }}
+      non_tech_note: ${{ steps.random_non_tech_note.outputs.note }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
       - id: random_tech_note
-        name: run random.sh
+        name: run random.sh tech
         run: | 
             result=$(./random.sh)
             echo $result
-            echo "tech_note=$result" >> $GITHUB_OUTPUT
+            echo "note=$result" >> $GITHUB_OUTPUT
         shell: bash
       - id: random_non_tech_note
         name: run random.sh non_tech
@@ -27,7 +27,7 @@ jobs:
         run: | 
             result=$(./random.sh non_tech)
             echo $result
-            echo "non_tech_note=$result" >> $GITHUB_OUTPUT
+            echo "note=$result" >> $GITHUB_OUTPUT
         shell: bash
   send:
     runs-on: ubuntu-latest
