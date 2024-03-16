@@ -2,7 +2,6 @@ name: run random.sh
 
 on:
   schedule:
-    - cron: "0 0 * * *" # At 00:00 everyday
     - cron: "0 0 * * sat,sun" # At 00:00 sat and sun
 
 jobs:
