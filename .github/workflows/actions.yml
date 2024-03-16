@@ -1,4 +1,4 @@
-name: run random.sh
+name: run print_random.sh
 
 on:
   schedule:
@@ -14,17 +14,17 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
       - id: random_tech_note
-        name: run random.sh tech
+        name: run print_random.sh tech
         run: | 
-            result=$(./random.sh)
+            result=$(./print_random.sh)
             echo $result
             echo "note=$result" >> $GITHUB_OUTPUT
         shell: bash
       - id: random_non_tech_note
-        name: run random.sh non_tech
+        name: run print_random.sh non_tech
         if: github.event.schedule == '0 0 * * sat,sun'
         run: | 
-            result=$(./random.sh non_tech)
+            result=$(./print_random.sh non_tech)
             echo $result
             echo "note=$result" >> $GITHUB_OUTPUT
         shell: bash

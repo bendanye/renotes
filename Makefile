@@ -1,5 +1,11 @@
-random-tech:
-	./random.sh tech
+print-random-tech:
+	./print_random.sh tech
 
-random-non-tech:
-	./random.sh non_tech
+print-random-non-tech:
+	./print_random.sh non_tech
+
+open-random-tech:
+	./open_random.sh tech
+
+open-random-non-tech:
+	./open_random.sh non_tech

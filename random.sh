@@ -1,16 +1,18 @@
 #!/bin/bash
 
-type="${1:-tech}"
+function random() {
+    type="${1:-tech}"
 
-searchDir="./notes/$type"
+    searchDir="./notes/$type"
 
-files=($searchDir/*.md)
-subdirectory_files=($searchDir/**/*.md)
-files+=(${subdirectory_files[@]})
+    files=($searchDir/*.md)
+    subdirectory_files=($searchDir/**/*.md)
+    files+=(${subdirectory_files[@]})
 
-random_notes=$[$RANDOM % ${#files[@]}]
-selected_note=${files[random_notes]}
+    random_notes=$[$RANDOM % ${#files[@]}]
+    selected_note=${files[random_notes]}
 
-selected_note="${selected_note:1}"
+    selected_note="${selected_note:1}"
 
-echo "Open \"https://github.com/bendanye/renotes/tree/main$selected_note\" and read it!"
+    echo "https://github.com/bendanye/renotes/tree/main$selected_note"
+}
