@@ -4,8 +4,8 @@ A Repo contains articles, notes to read, be remind of important points
 
 ## Running
 
-To get random note, run the following command:
+To get random note under notes/tech folder run the following command:
 
 ```shell
-./random.sh
+make print-random-tech
 ```
