@@ -33,13 +33,14 @@ jobs:
     needs: random
     steps:
       - name: send telegram message for tech note
+        if: needs.random.outputs.tech_note != ''
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: ${{ needs.random.outputs.tech_note }}
       - name: send telegram message for non_tech note
-        if: github.event.schedule == '0 0 * * sat,sun'
+        if: needs.random.outputs.non_tech_note != ''
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
