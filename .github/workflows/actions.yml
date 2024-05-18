@@ -2,7 +2,7 @@ name: run print_random.sh
 
 on:
   schedule:
-    - cron: "0 0 * * sat,sun" # At 00:00 sat and sun
+    - cron: "0 0 * * *" # At 00:00 everyday
 
 jobs:
   random:
@@ -17,16 +17,19 @@ jobs:
         name: run print_random.sh tech
         run: | 
             result=$(./print_random.sh)
-            echo $result
-            echo "note=$result" >> $GITHUB_OUTPUT
+            if [[ $result != "DO_NOTHING" ]]; then
+              echo $result
+              echo "note=$result" >> $GITHUB_OUTPUT
+            fi
         shell: bash
       - id: random_non_tech_note
         name: run print_random.sh non_tech
-        if: github.event.schedule == '0 0 * * sat,sun'
         run: | 
             result=$(./print_random.sh non_tech)
-            echo $result
-            echo "note=$result" >> $GITHUB_OUTPUT
+            if [[ $result != "DO_NOTHING" ]]; then
+              echo $result
+              echo "note=$result" >> $GITHUB_OUTPUT
+            fi
         shell: bash
   send:
     runs-on: ubuntu-latest
