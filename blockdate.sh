@@ -2,7 +2,7 @@
 
 function isBlockedDate() {
     # Path to the JSON file
-    json_file="blocked.json"
+    json_file="blocked_dates.json"
 
     # Get today's date
     today=$(date +%Y-%m-%d)

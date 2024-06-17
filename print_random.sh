@@ -8,7 +8,7 @@ isSingaporePublicHoliday=$(isSingaporePublicHoliday)
 isWeekend=$(isWeekend)
 isBlocked=$(isBlockedDate)
 
-if [[ $isBlocked == "true"]]; then
+if [[ $isBlocked == "true" ]]; then
     echo "DO_NOTHING"
 elif [[ $isSingaporePublicHoliday == "true" || $isWeekend == "true" ]]; then
     result=$(random $1)
