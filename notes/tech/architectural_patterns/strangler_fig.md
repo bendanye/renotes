@@ -4,6 +4,6 @@
 
 The pattern can be used at the method level or the class level."
 
-## Ref:
+## Ref
 * https://en.wikipedia.org/wiki/Strangler_fig_pattern
 * https://martinfowler.com/bliki/StranglerFigApplication.html
