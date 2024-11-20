@@ -3,7 +3,7 @@
 function isSingaporePublicHoliday() {
   TODAY=$(date +%Y-%m-%d)
 
-  response=$(cat 2024_singapore_ph.json| jq --arg date "$TODAY" '[.[] | select(.date == $date)]')
+  response=$(cat singapore_ph.json| jq --arg date "$TODAY" '[.[] | select(.date == $date)]')
   if [ "$response" = "[]" ]; then
     echo "false"
   else
