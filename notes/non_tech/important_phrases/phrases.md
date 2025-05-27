@@ -9,3 +9,6 @@
 * You don’t just need to fix something, but you also need to learn how to stop creating the problem
 * If you can’t measure it, you can’t improve it
 * Nine mothers cannot make one baby in a month
+* "Test your software, or your users will"
+* "if you liked it then you should have put a test on it" (Beyonce rule)
+* "Nothing is certain in software development except for bugs and constantly customer requirement changes"
