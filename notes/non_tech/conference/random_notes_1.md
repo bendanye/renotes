@@ -25,3 +25,27 @@
   - Multiple engineers can unblock one another  
 
 *By @randyshoup*
+
+---
+
+## Outcomes From 2 Ways of Working
+
+### Makers / Strikers
+- Take shots on goal
+  - Get a point
+  - Or lose possession
+- Win the game
+- Capture Immediate Value
+- Add net-new revenue
+- Trade-off: Value vs Cost
+
+### Menders / Midfield & Behind
+- Maintain possession
+  - Prevent opponent points
+  - Create shot opportunity
+- Don’t lose the game
+- Create Long-term Sustainability
+- Protect all existing revenue
+- Trade-off: Possibility vs Risk
+
+---
