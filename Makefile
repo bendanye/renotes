@@ -5,7 +5,7 @@ print-random-non-tech:
 	./print_random.sh non_tech
 
 open-random-tech:
-	./open_random.sh tech
+	python3 ./open_random.py tech
 
 open-random-non-tech:
-	./open_random.sh non_tech
+	python3 ./open_random.py non_tech
