@@ -5,7 +5,7 @@ Dependency injection
 
 Consider passing initialized objects instead of parameters to initialize them
 
-Prefer composition over inheritanc
+Prefer composition over inheritance
 
 Consider using strong types
 
