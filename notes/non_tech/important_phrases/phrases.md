@@ -13,3 +13,4 @@
 * "if you liked it then you should have put a test on it" (Beyonce rule)
 * "Nothing is certain in software development except for bugs and constantly customer requirement changes"
 * Ci is something you do, not something you have - Sam Newman
+* "A man who tries to do two things at once does neither" — Publilius Syrus
