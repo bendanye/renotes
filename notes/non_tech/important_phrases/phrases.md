@@ -14,3 +14,4 @@
 * "Nothing is certain in software development except for bugs and constantly customer requirement changes"
 * Ci is something you do, not something you have - Sam Newman
 * "A man who tries to do two things at once does neither" — Publilius Syrus
+* Make it work, make it right, make it fast - Kent beck
