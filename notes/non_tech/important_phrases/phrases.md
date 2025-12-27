@@ -15,3 +15,4 @@
 * Ci is something you do, not something you have - Sam Newman
 * "A man who tries to do two things at once does neither" — Publilius Syrus
 * Make it work, make it right, make it fast - Kent beck
+* The aim of art is to represent not the outward appearance of things, but their inward significance." - Aristotle, Greek Philosopher Civilization's Quotations: Life's Ideal, ed. Richard Alan Krieger (New York: Algora Publishing, 2002).
