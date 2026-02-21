@@ -17,3 +17,4 @@
 * Make it work, make it right, make it fast - Kent beck
 * The aim of art is to represent not the outward appearance of things, but their inward significance." - Aristotle, Greek Philosopher Civilization's Quotations: Life's Ideal, ed. Richard Alan Krieger (New York: Algora Publishing, 2002).
 * Make everyone smarter
+* If you don't end up regretting your early technology decisions, you probably over-engineered - randy shoup
